@@ -1051,15 +1051,15 @@
     "version": "0.5.0+commit.1d4f565a.Emscripten.clang"
   },
   "networks": {
-    "1550264221586": {
+    "4": {
       "events": {},
       "links": {},
-      "address": "0x42bE6C06B0edd4f294f70c6F249ef216381f9BB9",
-      "transactionHash": "0xb0585d215685a7bae4595aa8d150d18b1aa0101062679b8d5ecf0f0e476b5828"
+      "address": "0x3D0766Ee5685F99c3DeCeEe13ba973B5e0774e6c",
+      "transactionHash": "0xd5b77fedd6cfc70f5b6f675603798e24ed57cf6f6276c0ed5e222511115f5ecf"
     }
   },
   "schemaVersion": "3.0.2",
-  "updatedAt": "2019-02-15T23:00:57.975Z",
+  "updatedAt": "2019-02-16T01:53:39.676Z",
   "devdoc": {
     "methods": {
       "allowance(address,address)": {
