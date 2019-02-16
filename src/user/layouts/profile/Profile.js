@@ -4,8 +4,6 @@ class Profile extends Component {
   constructor(props, { authData }) {
     super(props)
     authData = this.props
-
-    console.log(this.props.authData.payload);
   }
 
   render() {
