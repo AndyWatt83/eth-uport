@@ -9,6 +9,7 @@ export const uport = new Connect('AKW React Uport box', {
     })
 
     window.web3 = uport.getWeb3();
+    window.uport = uport;
 
 export const web3 = uport.getWeb3()
 
