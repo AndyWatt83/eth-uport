@@ -10,7 +10,7 @@ import App from './App'
 import Home from './layouts/home/Home'
 import Dashboard from './layouts/dashboard/Dashboard'
 import Profile from './user/layouts/profile/Profile'
-import DrizzleTest from './layouts/drizzle/DrizzleTest'
+import SimpleStorage from './layouts/storage/SimpleStorage'
 
 // Redux Store
 import store from './store'
@@ -24,7 +24,7 @@ ReactDOM.render((
           <IndexRoute component={Home} />
           <Route path="dashboard" component={UserIsAuthenticated(Dashboard)} />
           <Route path="profile" component={UserIsAuthenticated(Profile)} />
-          <Route path="drizzle" component={UserIsAuthenticated(DrizzleTest)} />
+          <Route path="storage" component={UserIsAuthenticated(SimpleStorage)} />
         </Route>
       </Router>
     </Provider>

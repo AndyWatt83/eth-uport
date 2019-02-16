@@ -1,15 +1,15 @@
-import { Connect, SimpleSigner } from 'uport-connect'
-
-//export let uport = new Connect('TruffleBox')
+import { Connect } from 'uport-connect';
+import W3 from 'web3';
 
 export const uport = new Connect('AKW React Uport box', {
     clientId: '2oeNXcXuNmV3oURLpkHkiGYggZRwpaSJxXn',
-    network: 'rinkeby',
-    signer: SimpleSigner('fdc0b97e3536c9a4f3320e4b4429989ba7e9fa5dccb0d22b365b76eb9245f5d0')
-    })
+    network: 'rinkeby'
+});
 
-    window.web3 = uport.getWeb3();
-    window.uport = uport;
+const provider = uport.getProvider();
+const web3 = new W3(provider);
 
-export const web3 = uport.getWeb3()
+window.uport = uport;
+window.w3 = web3;
 
+export { web3 }

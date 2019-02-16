@@ -13,23 +13,24 @@ export function loginUser() {
   return function(dispatch) {
     // UPort and its web3 instance are defined in ./../../../util/wrappers.
     // Request uPort persona of account passed via QR
-    uport.requestCredentials({
+    uport.requestDisclosure({
         requested: ['name', 'phone', 'country'],
         notifications: true // We want this if we want to recieve credentials
-      })
-      .then((credentials) => {
-      dispatch(userLoggedIn(credentials))
+      });
 
-      // Used a manual redirect here as opposed to a wrapper.
-      // This way, once logged in a user can still access the home page.
-      var currentLocation = browserHistory.getCurrentLocation()
+    uport.onResponse("disclosureReq").then((credentials) => {
+          dispatch(userLoggedIn(credentials))
 
-      if ('redirect' in currentLocation.query)
-      {
-        return browserHistory.push(decodeURIComponent(currentLocation.query.redirect))
-      }
+        // Used a manual redirect here as opposed to a wrapper.
+        // This way, once logged in a user can still access the home page.
+        var currentLocation = browserHistory.getCurrentLocation()
 
-      return browserHistory.push('/dashboard')
-    })
+        if ('redirect' in currentLocation.query)
+        {
+          return browserHistory.push(decodeURIComponent(currentLocation.query.redirect))
+        }
+
+        return browserHistory.push('/dashboard')
+    });
   }
 }

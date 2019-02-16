@@ -23,7 +23,7 @@ class App extends Component {
           <Link to="/profile" className="pure-menu-link">Profile</Link>
         </li>
         <li className="pure-menu-item">
-          <Link to="/drizzle" className="pure-menu-link">Drizzle</Link>
+          <Link to="/storage" className="pure-menu-link">Storage</Link>
         </li>
         <LogoutButtonContainer />
       </span>
