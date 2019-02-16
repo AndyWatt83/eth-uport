@@ -22,17 +22,21 @@ class App extends Component {
         <li className="pure-menu-item">
           <Link to="/profile" className="pure-menu-link">Profile</Link>
         </li>
-        <li className="pure-menu-item">
-          <Link to="/storage" className="pure-menu-link">Storage</Link>
-        </li>
         <LogoutButtonContainer />
       </span>
     )
 
     const OnlyGuestLinks = HiddenOnlyAuth(() =>
-      <span>
-        <LoginButtonContainer />
-      </span>
+      <div>
+        <span>
+        <li className="pure-menu-item">
+            <Link to="/storage" className="pure-menu-link">Storage</Link>
+        </li>
+        </span>
+        <span>
+          <LoginButtonContainer />
+        </span>
+      </div>
     )
 
     return (

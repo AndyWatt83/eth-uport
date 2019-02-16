@@ -24,7 +24,7 @@ ReactDOM.render((
           <IndexRoute component={Home} />
           <Route path="dashboard" component={UserIsAuthenticated(Dashboard)} />
           <Route path="profile" component={UserIsAuthenticated(Profile)} />
-          <Route path="storage" component={UserIsAuthenticated(SimpleStorage)} />
+          <Route path="storage" component={SimpleStorage} />
         </Route>
       </Router>
     </Provider>

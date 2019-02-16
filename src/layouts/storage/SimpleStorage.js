@@ -1,18 +1,16 @@
 import React, { Component } from 'react'
-import W3 from 'web3';
+import SimpleStorageContract from '../../../src/contracts/SimpleStorage';
+import { web3 } from '../../util/connectors';
 
 class SimpleStorage extends Component {
   componentDidMount() {
-    const RINKEBY_WSS = "wss://rinkeby.infura.io/ws";
-    const provider = new W3.providers.WebsocketProvider(RINKEBY_WSS);
-    const web3 = new W3(provider);
-    const contractInterface = require('../../contracts/SimpleStorage.json');
-    const deployedAddress = contractInterface.networks[4].address;
+    const abi = SimpleStorageContract.abi;
+    const address = SimpleStorageContract.networks['4'].address;
+    const contract = web3.eth.Contract(abi, address);
 
-    const storage = new web3.eth.Contract(contractInterface.abi, deployedAddress);
-
-    storage.set(25);
-
+    contract.methods.get().call().then(console.log);
+    
+    // window.uport.onResponse('set').then(tx => console.log(tx));
   }
 
   render() {
