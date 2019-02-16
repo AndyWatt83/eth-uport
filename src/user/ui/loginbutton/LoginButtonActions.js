@@ -15,7 +15,7 @@ export function loginUser() {
     // Request uPort persona of account passed via QR
     uport.requestDisclosure({
         requested: ['name', 'phone', 'country'],
-        notifications: true // We want this if we want to recieve credentials
+        notifications: false // We want this if we want to recieve credentials
       });
 
     uport.onResponse("disclosureReq").then((credentials) => {

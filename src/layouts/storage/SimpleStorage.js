@@ -1,15 +1,21 @@
 import React, { Component } from 'react'
 import SimpleStorageContract from '../../../src/contracts/SimpleStorage';
-import { web3 } from '../../util/connectors';
+import W3 from 'web3';
 
 class SimpleStorage extends Component {
-  componentDidMount() {
+  async componentDidMount() {
     const abi = SimpleStorageContract.abi;
     const address = SimpleStorageContract.networks['4'].address;
-    const contract = web3.eth.Contract(abi, address);
+    const web3 = new W3(new W3.providers.HttpProvider("https://rinkeby.infura.io/24366b6fe8fa46f0aa374e68ea38adee"));
 
-    contract.methods.get().call().then(console.log);
-    
+    const storageContract = web3.eth.Contract(abi, address);
+    const storageUPort = window.uport.contract(abi).at(address);
+
+    storageUPort.set(Math.random() * 10);
+
+    const response = await storageContract.methods.get().call();
+
+    console.log(response);
     // window.uport.onResponse('set').then(tx => console.log(tx));
   }
 
