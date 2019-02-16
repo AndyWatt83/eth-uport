@@ -4,6 +4,8 @@ class Profile extends Component {
   constructor(props, { authData }) {
     super(props)
     authData = this.props
+
+    console.log(this.props.authData.payload);
   }
 
   render() {
@@ -15,7 +17,19 @@ class Profile extends Component {
             <p>Change these details in UPort to see them reflected here.</p>
             <p>
               <strong>Name</strong><br />
-              {this.props.authData.name}
+              {this.props.authData.payload.name}
+            </p>
+            <p>
+              <strong>Country</strong><br />
+              {this.props.authData.payload.country}
+            </p>
+            <p>
+              <strong>Phone</strong><br />
+              {this.props.authData.payload.phone}
+            </p>
+            <p>
+              <strong>Did</strong><br />
+              {this.props.authData.payload.did}
             </p>
           </div>
         </div>
